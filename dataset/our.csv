@@ -1,0 +1,99 @@
+Scenario,Files,Attributes,Policy,Setup Time (s),Keygen Time (s),Encrypt Time (s),Decrypt Time (s),MPK Size (Bytes),MSK Size (Bytes),SK Size (Bytes),CT Size (Bytes),Success Rate (%)
+"Fixed Files, Variable Attributes",2,2,(attr1 OR attr2),0.022273,0.000915,0.000248,0.044419,16,32,742,2113,100.00
+"Fixed Files, Variable Attributes",2,4,(attr1 OR attr2 OR attr3 OR attr4),0.022514,0.001200,0.000213,0.045459,16,32,1482,2113,100.00
+"Fixed Files, Variable Attributes",2,6,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6),0.022945,0.001022,0.000196,0.046325,16,32,2224,2113,100.00
+"Fixed Files, Variable Attributes",2,8,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8),0.022010,0.000540,0.000104,0.044646,16,32,2958,2113,100.00
+"Fixed Files, Variable Attributes",2,10,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10),0.021951,0.000562,0.000094,0.044929,16,32,3712,2113,100.00
+"Fixed Files, Variable Attributes",2,12,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10 OR attr11 OR attr12),0.024393,0.001513,0.000237,0.049355,16,32,4449,2113,100.00
+"Fixed Files, Variable Attributes",2,14,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10 OR attr11 OR attr12 OR attr13 OR attr14),0.025021,0.001467,0.000250,0.051523,16,32,5183,2113,100.00
+"Fixed Files, Variable Attributes",4,2,(attr1 OR attr2),0.021940,0.000888,0.000217,0.044680,16,32,740,2113,100.00
+"Fixed Files, Variable Attributes",4,4,(attr1 OR attr2 OR attr3 OR attr4),0.021513,0.000564,0.000124,0.043896,16,32,1483,2113,100.00
+"Fixed Files, Variable Attributes",4,6,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6),0.021303,0.000409,0.000059,0.043525,16,32,2227,2113,100.00
+"Fixed Files, Variable Attributes",4,8,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8),0.022172,0.000909,0.000149,0.046074,16,32,2964,2113,100.00
+"Fixed Files, Variable Attributes",4,10,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10),0.024104,0.001309,0.000231,0.048467,16,32,3707,2113,100.00
+"Fixed Files, Variable Attributes",4,12,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10 OR attr11 OR attr12),0.024416,0.001319,0.000205,0.049174,16,32,4448,2113,100.00
+"Fixed Files, Variable Attributes",4,14,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10 OR attr11 OR attr12 OR attr13 OR attr14),0.024217,0.001456,0.000227,0.050714,16,32,5187,2113,100.00
+"Fixed Files, Variable Attributes",6,2,(attr1 OR attr2),0.022283,0.000848,0.000235,0.043944,16,32,744,2113,100.00
+"Fixed Files, Variable Attributes",6,4,(attr1 OR attr2 OR attr3 OR attr4),0.022701,0.001103,0.000205,0.045443,16,32,1482,2113,100.00
+"Fixed Files, Variable Attributes",6,6,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6),0.023034,0.001164,0.000221,0.046697,16,32,2219,2113,100.00
+"Fixed Files, Variable Attributes",6,8,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8),0.022996,0.001123,0.000243,0.047581,16,32,2969,2113,100.00
+"Fixed Files, Variable Attributes",6,10,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10),0.023911,0.001622,0.000240,0.048859,16,32,3719,2113,100.00
+"Fixed Files, Variable Attributes",6,12,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10 OR attr11 OR attr12),0.024409,0.001474,0.000257,0.050221,16,32,4448,2113,100.00
+"Fixed Files, Variable Attributes",6,14,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10 OR attr11 OR attr12 OR attr13 OR attr14),0.024665,0.001384,0.000205,0.050323,16,32,5185,2113,100.00
+"Fixed Files, Variable Attributes",8,2,(attr1 OR attr2),0.022190,0.000841,0.000231,0.044509,16,32,744,2113,100.00
+"Fixed Files, Variable Attributes",8,4,(attr1 OR attr2 OR attr3 OR attr4),0.022763,0.001142,0.000239,0.045375,16,32,1483,2113,100.00
+"Fixed Files, Variable Attributes",8,6,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6),0.022102,0.000514,0.000116,0.044617,16,32,2228,2113,100.00
+"Fixed Files, Variable Attributes",8,8,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8),0.021316,0.000360,0.000076,0.043522,16,32,2975,2113,100.00
+"Fixed Files, Variable Attributes",8,10,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10),0.023341,0.001079,0.000180,0.047951,16,32,3702,2113,100.00
+"Fixed Files, Variable Attributes",8,12,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10 OR attr11 OR attr12),0.024119,0.001264,0.000201,0.049785,16,32,4450,2113,100.00
+"Fixed Files, Variable Attributes",8,14,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10 OR attr11 OR attr12 OR attr13 OR attr14),0.024516,0.001386,0.000215,0.050717,16,32,5194,2113,100.00
+"Fixed Files, Variable Attributes",10,2,(attr1 OR attr2),0.022167,0.000843,0.000209,0.043945,16,32,743,2113,100.00
+"Fixed Files, Variable Attributes",10,4,(attr1 OR attr2 OR attr3 OR attr4),0.022646,0.001144,0.000222,0.045520,16,32,1488,2113,100.00
+"Fixed Files, Variable Attributes",10,6,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6),0.023151,0.001128,0.000215,0.047003,16,32,2230,2113,100.00
+"Fixed Files, Variable Attributes",10,8,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8),0.023505,0.001095,0.000177,0.047963,16,32,2964,2113,100.00
+"Fixed Files, Variable Attributes",10,10,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10),0.023677,0.001257,0.000222,0.048831,16,32,3703,2113,100.00
+"Fixed Files, Variable Attributes",10,12,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10 OR attr11 OR attr12),0.024441,0.001528,0.000204,0.049583,16,32,4447,2113,100.00
+"Fixed Files, Variable Attributes",10,14,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10 OR attr11 OR attr12 OR attr13 OR attr14),0.024854,0.001670,0.000233,0.049892,16,32,5190,2113,100.00
+"Fixed Files, Variable Attributes",12,2,(attr1 OR attr2),0.022231,0.000912,0.000169,0.044256,16,32,739,2113,100.00
+"Fixed Files, Variable Attributes",12,4,(attr1 OR attr2 OR attr3 OR attr4),0.022695,0.000912,0.000206,0.045675,16,32,1489,2113,100.00
+"Fixed Files, Variable Attributes",12,6,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6),0.022783,0.001077,0.000217,0.046577,16,32,2226,2113,100.00
+"Fixed Files, Variable Attributes",12,8,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8),0.022084,0.000789,0.000151,0.045273,16,32,2972,2113,100.00
+"Fixed Files, Variable Attributes",12,10,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10),0.021911,0.000464,0.000087,0.044071,16,32,3712,2113,100.00
+"Fixed Files, Variable Attributes",12,12,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10 OR attr11 OR attr12),0.023261,0.000977,0.000154,0.048590,16,32,4454,2113,100.00
+"Fixed Files, Variable Attributes",12,14,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10 OR attr11 OR attr12 OR attr13 OR attr14),0.024723,0.001445,0.000232,0.049717,16,32,5196,2113,100.00
+"Fixed Files, Variable Attributes",14,2,(attr1 OR attr2),0.022154,0.000851,0.000238,0.044763,16,32,746,2113,100.00
+"Fixed Files, Variable Attributes",14,4,(attr1 OR attr2 OR attr3 OR attr4),0.022580,0.001250,0.000217,0.046423,16,32,1483,2113,100.00
+"Fixed Files, Variable Attributes",14,6,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6),0.023163,0.001214,0.000234,0.047106,16,32,2223,2113,100.00
+"Fixed Files, Variable Attributes",14,8,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8),0.023638,0.001126,0.000192,0.046940,16,32,2965,2113,100.00
+"Fixed Files, Variable Attributes",14,10,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10),0.024238,0.001264,0.000236,0.049691,16,32,3705,2113,100.00
+"Fixed Files, Variable Attributes",14,12,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10 OR attr11 OR attr12),0.024260,0.001312,0.000220,0.050112,16,32,4450,2113,100.00
+"Fixed Files, Variable Attributes",14,14,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10 OR attr11 OR attr12 OR attr13 OR attr14),0.025390,0.001480,0.000219,0.049326,16,32,5192,2113,100.00
+"Fixed Attributes, Variable Files",2,2,(attr1 OR attr2),0.021968,0.001035,0.000211,0.044128,16,32,743,2113,100.00
+"Fixed Attributes, Variable Files",4,2,(attr1 OR attr2),0.022126,0.001161,0.000207,0.044592,16,32,740,2113,100.00
+"Fixed Attributes, Variable Files",6,2,(attr1 OR attr2),0.022426,0.000911,0.000202,0.044326,16,32,744,2113,100.00
+"Fixed Attributes, Variable Files",8,2,(attr1 OR attr2),0.021878,0.000818,0.000169,0.044863,16,32,744,2113,100.00
+"Fixed Attributes, Variable Files",10,2,(attr1 OR attr2),0.021157,0.000611,0.000131,0.043750,16,32,740,2113,100.00
+"Fixed Attributes, Variable Files",12,2,(attr1 OR attr2),0.021010,0.000353,0.000079,0.042231,16,32,743,2113,100.00
+"Fixed Attributes, Variable Files",14,2,(attr1 OR attr2),0.021624,0.000695,0.000149,0.043851,16,32,745,2113,100.00
+"Fixed Attributes, Variable Files",2,4,(attr1 OR attr2 OR attr3 OR attr4),0.022756,0.001027,0.000196,0.045429,16,32,1488,2113,100.00
+"Fixed Attributes, Variable Files",4,4,(attr1 OR attr2 OR attr3 OR attr4),0.022628,0.001033,0.000216,0.045746,16,32,1483,2113,100.00
+"Fixed Attributes, Variable Files",6,4,(attr1 OR attr2 OR attr3 OR attr4),0.022484,0.000985,0.000179,0.045009,16,32,1487,2113,100.00
+"Fixed Attributes, Variable Files",8,4,(attr1 OR attr2 OR attr3 OR attr4),0.022459,0.001085,0.000206,0.045075,16,32,1480,2113,100.00
+"Fixed Attributes, Variable Files",10,4,(attr1 OR attr2 OR attr3 OR attr4),0.022690,0.001126,0.000191,0.046166,16,32,1481,2113,100.00
+"Fixed Attributes, Variable Files",12,4,(attr1 OR attr2 OR attr3 OR attr4),0.022406,0.001156,0.000196,0.047704,16,32,1483,2113,100.00
+"Fixed Attributes, Variable Files",14,4,(attr1 OR attr2 OR attr3 OR attr4),0.022802,0.001091,0.000182,0.046256,16,32,1485,2113,100.00
+"Fixed Attributes, Variable Files",2,6,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6),0.023265,0.001126,0.000228,0.046753,16,32,2227,2113,100.00
+"Fixed Attributes, Variable Files",4,6,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6),0.021013,0.000454,0.000077,0.043509,16,32,2226,2113,100.00
+"Fixed Attributes, Variable Files",6,6,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6),0.022282,0.000645,0.000137,0.044833,16,32,2229,2113,100.00
+"Fixed Attributes, Variable Files",8,6,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6),0.022859,0.001131,0.000181,0.047950,16,32,2228,2113,100.00
+"Fixed Attributes, Variable Files",10,6,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6),0.022780,0.001050,0.000281,0.046893,16,32,2226,2113,100.00
+"Fixed Attributes, Variable Files",12,6,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6),0.022973,0.001120,0.000180,0.047353,16,32,2221,2113,100.00
+"Fixed Attributes, Variable Files",14,6,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6),0.021534,0.000505,0.000093,0.043654,16,32,2226,2113,100.00
+"Fixed Attributes, Variable Files",2,8,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8),0.021564,0.000566,0.000093,0.045967,16,32,2969,2113,100.00
+"Fixed Attributes, Variable Files",4,8,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8),0.023436,0.001070,0.000199,0.047381,16,32,2971,2113,100.00
+"Fixed Attributes, Variable Files",6,8,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8),0.023695,0.001190,0.000185,0.047087,16,32,2966,2113,100.00
+"Fixed Attributes, Variable Files",8,8,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8),0.023711,0.001385,0.000221,0.048739,16,32,2968,2113,100.00
+"Fixed Attributes, Variable Files",10,8,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8),0.023395,0.001144,0.000180,0.047617,16,32,2973,2113,100.00
+"Fixed Attributes, Variable Files",12,8,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8),0.023417,0.001251,0.000234,0.047664,16,32,2973,2113,100.00
+"Fixed Attributes, Variable Files",14,8,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8),0.023152,0.001123,0.000212,0.047938,16,32,2966,2113,100.00
+"Fixed Attributes, Variable Files",2,10,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10),0.023649,0.001362,0.000189,0.049462,16,32,3712,2113,100.00
+"Fixed Attributes, Variable Files",4,10,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10),0.023531,0.001276,0.000219,0.048038,16,32,3707,2113,100.00
+"Fixed Attributes, Variable Files",6,10,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10),0.023746,0.001187,0.000183,0.049338,16,32,3710,2113,100.00
+"Fixed Attributes, Variable Files",8,10,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10),0.022969,0.001078,0.000155,0.048259,16,32,3707,2113,100.00
+"Fixed Attributes, Variable Files",10,10,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10),0.024268,0.001212,0.000208,0.047688,16,32,3716,2113,100.00
+"Fixed Attributes, Variable Files",12,10,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10),0.022280,0.000861,0.000130,0.045695,16,32,3704,2113,100.00
+"Fixed Attributes, Variable Files",14,10,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10),0.022874,0.000869,0.000129,0.046975,16,32,3713,2113,100.00
+"Fixed Attributes, Variable Files",2,12,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10 OR attr11 OR attr12),0.022834,0.001049,0.000152,0.046358,16,32,4447,2113,100.00
+"Fixed Attributes, Variable Files",4,12,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10 OR attr11 OR attr12),0.022021,0.000683,0.000095,0.045434,16,32,4453,2113,100.00
+"Fixed Attributes, Variable Files",6,12,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10 OR attr11 OR attr12),0.022946,0.000907,0.000133,0.048156,16,32,4447,2113,100.00
+"Fixed Attributes, Variable Files",8,12,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10 OR attr11 OR attr12),0.023468,0.001074,0.000157,0.049532,16,32,4447,2113,100.00
+"Fixed Attributes, Variable Files",10,12,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10 OR attr11 OR attr12),0.024086,0.001439,0.000194,0.049168,16,32,4455,2113,100.00
+"Fixed Attributes, Variable Files",12,12,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10 OR attr11 OR attr12),0.023233,0.001092,0.000200,0.048761,16,32,4459,2113,100.00
+"Fixed Attributes, Variable Files",14,12,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10 OR attr11 OR attr12),0.025146,0.001369,0.000263,0.049424,16,32,4444,2113,100.00
+"Fixed Attributes, Variable Files",2,14,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10 OR attr11 OR attr12 OR attr13 OR attr14),0.024581,0.001344,0.000256,0.050491,16,32,5186,2113,100.00
+"Fixed Attributes, Variable Files",4,14,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10 OR attr11 OR attr12 OR attr13 OR attr14),0.024473,0.001322,0.000181,0.049659,16,32,5189,2113,100.00
+"Fixed Attributes, Variable Files",6,14,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10 OR attr11 OR attr12 OR attr13 OR attr14),0.024911,0.001563,0.000205,0.051015,16,32,5188,2113,100.00
+"Fixed Attributes, Variable Files",8,14,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10 OR attr11 OR attr12 OR attr13 OR attr14),0.024499,0.001357,0.000221,0.049605,16,32,5195,2113,100.00
+"Fixed Attributes, Variable Files",10,14,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10 OR attr11 OR attr12 OR attr13 OR attr14),0.024428,0.001530,0.000205,0.051423,16,32,5193,2113,100.00
+"Fixed Attributes, Variable Files",12,14,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10 OR attr11 OR attr12 OR attr13 OR attr14),0.023420,0.001239,0.000185,0.049948,16,32,5188,2113,100.00
+"Fixed Attributes, Variable Files",14,14,(attr1 OR attr2 OR attr3 OR attr4 OR attr5 OR attr6 OR attr7 OR attr8 OR attr9 OR attr10 OR attr11 OR attr12 OR attr13 OR attr14),0.024332,0.001284,0.000191,0.050130,16,32,5201,2113,100.00
