@@ -1,9 +1,0 @@
-{
-  "iterations": 5,
-  "successfulIterations": 0,
-  "failedIterations": 5,
-  "results": {
-    "apiCalls": [],
-    "queryLatency": []
-  }
-}

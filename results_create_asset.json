@@ -1,7 +1,0 @@
-{
-  "runs": 20,
-  "avgLatency": "22.154",
-  "latencyUnit": "milliseconds",
-  "successfulRuns": 20,
-  "totalRuns": 20
-}

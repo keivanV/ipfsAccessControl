@@ -1,7 +1,0 @@
-Attribute Count,Average Latency (ms),Successful Runs,Total Runs,Access Granted Count,Access Achievements
-1,42.433,5,5,4,0.880
-10,42.517,5,5,4,0.880
-50,45.050,5,5,5,1.000
-100,46.927,5,5,5,1.000
-500,173.167,5,5,5,1.000
-1000,296.049,5,5,5,1.000
