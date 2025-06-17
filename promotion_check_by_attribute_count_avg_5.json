@@ -1,0 +1,61 @@
+{
+  "iterations": 5,
+  "successfulIterations": 5,
+  "failedIterations": 0,
+  "results": [
+    {
+      "attributeCount": 1,
+      "avgLatency": "42.433",
+      "latencyUnit": "milliseconds",
+      "successfulRuns": 5,
+      "totalRuns": 5,
+      "accessGrantedCount": 4,
+      "accessGrantedRate": "0.880"
+    },
+    {
+      "attributeCount": 10,
+      "avgLatency": "42.517",
+      "latencyUnit": "milliseconds",
+      "successfulRuns": 5,
+      "totalRuns": 5,
+      "accessGrantedCount": 4,
+      "accessGrantedRate": "0.880"
+    },
+    {
+      "attributeCount": 50,
+      "avgLatency": "45.050",
+      "latencyUnit": "milliseconds",
+      "successfulRuns": 5,
+      "totalRuns": 5,
+      "accessGrantedCount": 5,
+      "accessGrantedRate": "1.000"
+    },
+    {
+      "attributeCount": 100,
+      "avgLatency": "46.927",
+      "latencyUnit": "milliseconds",
+      "successfulRuns": 5,
+      "totalRuns": 5,
+      "accessGrantedCount": 5,
+      "accessGrantedRate": "1.000"
+    },
+    {
+      "attributeCount": 500,
+      "avgLatency": "173.167",
+      "latencyUnit": "milliseconds",
+      "successfulRuns": 5,
+      "totalRuns": 5,
+      "accessGrantedCount": 5,
+      "accessGrantedRate": "1.000"
+    },
+    {
+      "attributeCount": 1000,
+      "avgLatency": "296.049",
+      "latencyUnit": "milliseconds",
+      "successfulRuns": 5,
+      "totalRuns": 5,
+      "accessGrantedCount": 5,
+      "accessGrantedRate": "1.000"
+    }
+  ]
+}

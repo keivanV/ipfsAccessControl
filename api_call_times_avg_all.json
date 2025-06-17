@@ -1,0 +1,93 @@
+{
+  "5_iterations": {
+    "iterations": 5,
+    "successfulIterations": 5,
+    "failedIterations": 0,
+    "results": [
+      {
+        "function": "UserExists",
+        "avgLatency": "10.526",
+        "latencyUnit": "milliseconds",
+        "successfulRuns": 5,
+        "totalRuns": 5
+      },
+      {
+        "function": "GetUser",
+        "avgLatency": "10.365",
+        "latencyUnit": "milliseconds",
+        "successfulRuns": 5,
+        "totalRuns": 5
+      },
+      {
+        "function": "GetAssetsByOwnerAndName",
+        "avgLatency": "0.070",
+        "latencyUnit": "milliseconds",
+        "successfulRuns": 5,
+        "totalRuns": 5
+      },
+      {
+        "function": "AssetExists",
+        "avgLatency": "10.254",
+        "latencyUnit": "milliseconds",
+        "successfulRuns": 5,
+        "totalRuns": 5
+      },
+      {
+        "function": "ReadAsset",
+        "avgLatency": "10.002",
+        "latencyUnit": "milliseconds",
+        "successfulRuns": 5,
+        "totalRuns": 5
+      },
+      {
+        "function": "CheckAccess",
+        "avgLatency": "42.122",
+        "latencyUnit": "milliseconds",
+        "successfulRuns": 5,
+        "totalRuns": 5
+      },
+      {
+        "function": "GetAllAssets",
+        "avgLatency": "0.025",
+        "latencyUnit": "milliseconds",
+        "successfulRuns": 5,
+        "totalRuns": 5
+      },
+      {
+        "function": "CreateUser",
+        "avgLatency": "42.565",
+        "latencyUnit": "milliseconds",
+        "successfulRuns": 5,
+        "totalRuns": 5
+      },
+      {
+        "function": "CreateAsset",
+        "avgLatency": "46.474",
+        "latencyUnit": "milliseconds",
+        "successfulRuns": 5,
+        "totalRuns": 5
+      },
+      {
+        "function": "UpdateAsset",
+        "avgLatency": "48.736",
+        "latencyUnit": "milliseconds",
+        "successfulRuns": 5,
+        "totalRuns": 5
+      },
+      {
+        "function": "RevokePermanentAccess",
+        "avgLatency": "33.287",
+        "latencyUnit": "milliseconds",
+        "successfulRuns": 5,
+        "totalRuns": 5
+      },
+      {
+        "function": "GrantAccess",
+        "avgLatency": "32.651",
+        "latencyUnit": "milliseconds",
+        "successfulRuns": 5,
+        "totalRuns": 5
+      }
+    ]
+  }
+}

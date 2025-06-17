@@ -1,0 +1,219 @@
+{
+  "apiCallTimes": {
+    "5_iterations": {
+      "iterations": 5,
+      "successfulIterations": 5,
+      "failedIterations": 0,
+      "results": [
+        {
+          "function": "UserExists",
+          "avgLatency": "0.089",
+          "latencyUnit": "milliseconds",
+          "successfulRuns": 5,
+          "totalRuns": 5
+        },
+        {
+          "function": "GetUser",
+          "avgLatency": "0.286",
+          "latencyUnit": "milliseconds",
+          "successfulRuns": 5,
+          "totalRuns": 5
+        },
+        {
+          "function": "GetAssetsByOwnerAndName",
+          "avgLatency": "0.120",
+          "latencyUnit": "milliseconds",
+          "successfulRuns": 5,
+          "totalRuns": 5
+        },
+        {
+          "function": "AssetExists",
+          "avgLatency": "0.050",
+          "latencyUnit": "milliseconds",
+          "successfulRuns": 5,
+          "totalRuns": 5
+        },
+        {
+          "function": "ReadAsset",
+          "avgLatency": "0.530",
+          "latencyUnit": "milliseconds",
+          "successfulRuns": 5,
+          "totalRuns": 5
+        },
+        {
+          "function": "CheckAccess",
+          "avgLatency": -1,
+          "latencyUnit": "milliseconds",
+          "successfulRuns": 0,
+          "totalRuns": 5
+        },
+        {
+          "function": "GetAllAssets",
+          "avgLatency": "0.131",
+          "latencyUnit": "milliseconds",
+          "successfulRuns": 5,
+          "totalRuns": 5
+        },
+        {
+          "function": "CreateUser",
+          "avgLatency": "0.804",
+          "latencyUnit": "milliseconds",
+          "successfulRuns": 5,
+          "totalRuns": 5
+        },
+        {
+          "function": "CreateAsset",
+          "avgLatency": "16.238",
+          "latencyUnit": "milliseconds",
+          "successfulRuns": 5,
+          "totalRuns": 5
+        },
+        {
+          "function": "UpdateAsset",
+          "avgLatency": "8.887",
+          "latencyUnit": "milliseconds",
+          "successfulRuns": 5,
+          "totalRuns": 5
+        },
+        {
+          "function": "RevokePermanentAccess",
+          "avgLatency": "0.689",
+          "latencyUnit": "milliseconds",
+          "successfulRuns": 5,
+          "totalRuns": 5
+        },
+        {
+          "function": "GrantAccess",
+          "avgLatency": -1,
+          "latencyUnit": "milliseconds",
+          "successfulRuns": 0,
+          "totalRuns": 5
+        }
+      ]
+    }
+  },
+  "queryLatency": {
+    "5_iterations": {
+      "iterations": 5,
+      "successfulIterations": 5,
+      "failedIterations": 0,
+      "results": [
+        {
+          "concurrency": 5,
+          "readAssetAvgLatency": "0.221",
+          "readAssetTPS": "25298.22",
+          "getAssetsByOwnerAndNameAvgLatency": "0.083",
+          "getAssetsByOwnerAndNameTPS": "114983.94"
+        },
+        {
+          "concurrency": 80,
+          "readAssetAvgLatency": "2.833",
+          "readAssetTPS": "31593.79",
+          "getAssetsByOwnerAndNameAvgLatency": "0.949",
+          "getAssetsByOwnerAndNameTPS": "190458.84"
+        },
+        {
+          "concurrency": 200,
+          "readAssetAvgLatency": "8.684",
+          "readAssetTPS": "24546.85",
+          "getAssetsByOwnerAndNameAvgLatency": "1.923",
+          "getAssetsByOwnerAndNameTPS": "193022.27"
+        },
+        {
+          "concurrency": 400,
+          "readAssetAvgLatency": "17.237",
+          "readAssetTPS": "24562.20",
+          "getAssetsByOwnerAndNameAvgLatency": "4.173",
+          "getAssetsByOwnerAndNameTPS": "207050.01"
+        }
+      ]
+    }
+  },
+  "createAsset": {
+    "5_iterations": {
+      "iterations": 5,
+      "successfulIterations": 5,
+      "failedIterations": 0,
+      "results": {
+        "avgLatency": "21.826",
+        "latencyUnit": "milliseconds",
+        "successfulRuns": 20,
+        "totalRuns": 20
+      }
+    }
+  },
+  "promoteDemote": {
+    "5_iterations": {
+      "iterations": 5,
+      "successfulIterations": 0,
+      "failedIterations": 5,
+      "results": []
+    }
+  },
+  "promotionCheckByAttributeCount": {
+    "5_iterations": {
+      "iterations": 5,
+      "successfulIterations": 5,
+      "failedIterations": 0,
+      "results": [
+        {
+          "attributeCount": 1,
+          "avgLatency": -1,
+          "latencyUnit": "milliseconds",
+          "successfulRuns": 0,
+          "totalRuns": 5,
+          "accessGrantedCount": 0,
+          "accessGrantedRate": "0.000"
+        },
+        {
+          "attributeCount": 10,
+          "avgLatency": -1,
+          "latencyUnit": "milliseconds",
+          "successfulRuns": 0,
+          "totalRuns": 5,
+          "accessGrantedCount": 0,
+          "accessGrantedRate": "0.000"
+        },
+        {
+          "attributeCount": 50,
+          "avgLatency": -1,
+          "latencyUnit": "milliseconds",
+          "successfulRuns": 0,
+          "totalRuns": 5,
+          "accessGrantedCount": 0,
+          "accessGrantedRate": "0.000"
+        },
+        {
+          "attributeCount": 100,
+          "avgLatency": -1,
+          "latencyUnit": "milliseconds",
+          "successfulRuns": 0,
+          "totalRuns": 5,
+          "accessGrantedCount": 0,
+          "accessGrantedRate": "0.000"
+        }
+      ]
+    }
+  },
+  "leastPrivilege": [
+    {
+      "test": "RevokeTwice",
+      "status": "FAIL"
+    },
+    {
+      "test": "DemotedAccess",
+      "status": "ERROR",
+      "error": "No valid promotion attributes defined for asset test"
+    },
+    {
+      "test": "RevokedAccess",
+      "status": "ERROR",
+      "error": "Cannot read properties of undefined (reading 'push')"
+    },
+    {
+      "test": "PromoteTwice",
+      "status": "ERROR",
+      "error": "No valid promotion attributes defined for asset test"
+    }
+  ]
+}

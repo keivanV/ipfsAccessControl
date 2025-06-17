@@ -1,0 +1,3 @@
+Function,Description,Average Latency (ms),Successful Runs,Total Runs
+CheckAccess,Check if user can get access,43.703,5,5
+PromoteAccess,Promote user access,46.074,1,5

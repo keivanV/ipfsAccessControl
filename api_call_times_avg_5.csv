@@ -1,0 +1,13 @@
+Function,Description,Average Latency (ms),Successful Runs,Total Runs
+UserExists,,10.526,5,5
+GetUser,,10.365,5,5
+GetAssetsByOwnerAndName,,0.070,5,5
+AssetExists,,10.254,5,5
+ReadAsset,,10.002,5,5
+CheckAccess,,42.122,5,5
+GetAllAssets,,0.025,5,5
+CreateUser,,42.565,5,5
+CreateAsset,,46.474,5,5
+UpdateAsset,,48.736,5,5
+RevokePermanentAccess,,33.287,5,5
+GrantAccess,,32.651,5,5

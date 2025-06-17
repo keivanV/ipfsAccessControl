@@ -1,0 +1,44 @@
+[
+  {
+    "concurrency": 5,
+    "readAssetAvgLatency": "10.436",
+    "readAssetTPS": "482.96",
+    "getAssetsByOwnerAndNameAvgLatency": "0.014",
+    "getAssetsByOwnerAndNameTPS": "624999.90"
+  },
+  {
+    "concurrency": 80,
+    "readAssetAvgLatency": "15.458",
+    "readAssetTPS": "7529.55",
+    "getAssetsByOwnerAndNameAvgLatency": "0.088",
+    "getAssetsByOwnerAndNameTPS": "1362862.03"
+  },
+  {
+    "concurrency": 200,
+    "readAssetAvgLatency": "33.304",
+    "readAssetTPS": "18798.94",
+    "getAssetsByOwnerAndNameAvgLatency": "0.381",
+    "getAssetsByOwnerAndNameTPS": "637348.63"
+  },
+  {
+    "concurrency": 400,
+    "readAssetAvgLatency": "52.212",
+    "readAssetTPS": "38792.77",
+    "getAssetsByOwnerAndNameAvgLatency": "0.748",
+    "getAssetsByOwnerAndNameTPS": "658436.22"
+  },
+  {
+    "concurrency": 600,
+    "readAssetAvgLatency": "91.072",
+    "readAssetTPS": "56695.23",
+    "getAssetsByOwnerAndNameAvgLatency": "0.944",
+    "getAssetsByOwnerAndNameTPS": "815549.82"
+  },
+  {
+    "concurrency": 1000,
+    "readAssetAvgLatency": "152.920",
+    "readAssetTPS": "104375.42",
+    "getAssetsByOwnerAndNameAvgLatency": "1.857",
+    "getAssetsByOwnerAndNameTPS": "656383.33"
+  }
+]

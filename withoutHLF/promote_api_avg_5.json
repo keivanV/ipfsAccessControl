@@ -1,0 +1,23 @@
+{
+  "iterations": 5,
+  "successfulIterations": 5,
+  "failedIterations": 0,
+  "results": [
+    {
+      "function": "CheckAccess",
+      "description": "Check if user can get access",
+      "avgLatency": "43.703",
+      "latencyUnit": "milliseconds",
+      "successfulRuns": 5,
+      "totalRuns": 5
+    },
+    {
+      "function": "PromoteAccess",
+      "description": "Promote user access",
+      "avgLatency": "46.074",
+      "latencyUnit": "milliseconds",
+      "successfulRuns": 1,
+      "totalRuns": 5
+    }
+  ]
+}

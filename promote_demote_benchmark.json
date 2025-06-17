@@ -1,0 +1,18 @@
+[
+  {
+    "function": "CheckAccess",
+    "description": "Check if user can get access",
+    "avgLatency": "42.910",
+    "latencyUnit": "milliseconds",
+    "successfulRuns": 5,
+    "totalRuns": 5
+  },
+  {
+    "function": "PromoteAccess",
+    "description": "Promote user access",
+    "avgLatency": "45.034",
+    "latencyUnit": "milliseconds",
+    "successfulRuns": 1,
+    "totalRuns": 5
+  }
+]

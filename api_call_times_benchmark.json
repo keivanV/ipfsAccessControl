@@ -1,0 +1,86 @@
+[
+  {
+    "function": "UserExists",
+    "avgLatency": "10.439",
+    "latencyUnit": "milliseconds",
+    "successfulRuns": 5,
+    "totalRuns": 5
+  },
+  {
+    "function": "GetUser",
+    "avgLatency": "10.436",
+    "latencyUnit": "milliseconds",
+    "successfulRuns": 5,
+    "totalRuns": 5
+  },
+  {
+    "function": "GetAssetsByOwnerAndName",
+    "avgLatency": "0.029",
+    "latencyUnit": "milliseconds",
+    "successfulRuns": 5,
+    "totalRuns": 5
+  },
+  {
+    "function": "AssetExists",
+    "avgLatency": "10.301",
+    "latencyUnit": "milliseconds",
+    "successfulRuns": 5,
+    "totalRuns": 5
+  },
+  {
+    "function": "ReadAsset",
+    "avgLatency": "9.747",
+    "latencyUnit": "milliseconds",
+    "successfulRuns": 5,
+    "totalRuns": 5
+  },
+  {
+    "function": "CheckAccess",
+    "avgLatency": "41.884",
+    "latencyUnit": "milliseconds",
+    "successfulRuns": 5,
+    "totalRuns": 5
+  },
+  {
+    "function": "GetAllAssets",
+    "avgLatency": "0.024",
+    "latencyUnit": "milliseconds",
+    "successfulRuns": 5,
+    "totalRuns": 5
+  },
+  {
+    "function": "CreateUser",
+    "avgLatency": "41.987",
+    "latencyUnit": "milliseconds",
+    "successfulRuns": 5,
+    "totalRuns": 5
+  },
+  {
+    "function": "CreateAsset",
+    "avgLatency": "46.022",
+    "latencyUnit": "milliseconds",
+    "successfulRuns": 5,
+    "totalRuns": 5
+  },
+  {
+    "function": "UpdateAsset",
+    "avgLatency": "49.457",
+    "latencyUnit": "milliseconds",
+    "successfulRuns": 5,
+    "totalRuns": 5
+  },
+  {
+    "function": "RevokePermanentAccess",
+    "avgLatency": "32.601",
+    "latencyUnit": "milliseconds",
+    "successfulRuns": 5,
+    "totalRuns": 5
+  },
+  {
+    "function": "GrantAccess",
+    "avgLatency": "33.230",
+    "latencyUnit": "milliseconds",
+    "successfulRuns": 5,
+    "totalRuns": 5
+  }
+]
