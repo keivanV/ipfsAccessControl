@@ -106,15 +106,15 @@ class IncentiveContract:
         return self.transactions
 
 class DecentralizedCPABE(ABEncMultiAuth):
-    def __init__(self, group: PairingGroup, target_data_size: int = 1024):  #-- Default to 1KB
+    def __init__(self, group: PairingGroup, target_data_size: int = 1024):  # Default to 1KB
         super().__init__()
         self.group = group
         self.contract = IncentiveContract()
         random.seed(42)
         self.random_zr_cache = [self.group.random(ZR) for _ in range(100)]
         self.cache_index = 0
-        self.chunk_size = 128  #-- SS512 cp-abe limitation 
-        self.target_data_size = target_data_size  #-- Target data size in bytes (default 1KB)
+        self.chunk_size = 128  
+        self.target_data_size = target_data_size  # Target data size in bytes (default 1KB)
         self.num_chunks = math.ceil(self.target_data_size / self.chunk_size)  
 
     def get_random_zr(self) -> Any:
@@ -168,7 +168,7 @@ class DecentralizedCPABE(ABEncMultiAuth):
         for _ in range(num_files):
             for _ in range(self.num_chunks):
                 s = self.group.random(ZR)
-                theta = list(pk_thetas.keys())[0]  #
+                theta = list(pk_thetas.keys())[0]  # Use first authority
                 C0 = M * (pk_thetas[theta]["e_g1_g2_alpha"] ** s)
                 C1 = GP["g1"] ** s
                 C2 = GP["g2"] ** s
@@ -182,7 +182,7 @@ class DecentralizedCPABE(ABEncMultiAuth):
         decrypted_messages = []
         attr_count = len([word for word in C[0]["policy"].replace("(", " ( ").replace(")", " ) ").split() if word not in ["AND", "OR", "(", ")"]])
         for ciphertext in C:
-            # Simulate attribute processing to match encryption's attribute 
+            # Simulate attribute processing to match encryption's attribute loop
             for _ in range(attr_count):
                 policy_g1 = self.group.random(G1)
                 policy_g2 = self.group.random(G2)
