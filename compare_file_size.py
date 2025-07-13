@@ -18,7 +18,6 @@ csv_folder = os.path.expanduser(csv_folder)
 if not os.path.exists(csv_folder):
     os.makedirs(csv_folder)
 
-# Find all CSV files (exclude :Zone.Identifier)
 csv_files = [f for f in glob.glob(os.path.join(csv_folder, "*.csv")) if ":Zone.Identifier" not in f]
 if not csv_files:
     print("No CSV files found in the folder!")
