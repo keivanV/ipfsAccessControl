@@ -11,7 +11,7 @@ sns.set(style="whitegrid")
 plt.rcParams['figure.figsize'] = (6, 4)  # Size for individual plots
 
 # CSV folder path
-csv_folder = "./dataset"
+csv_folder = "./dataset_file_size"
 csv_folder = os.path.expanduser(csv_folder)
 
 # Find all CSV files (exclude :Zone.Identifier)

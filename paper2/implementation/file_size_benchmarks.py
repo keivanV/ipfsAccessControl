@@ -22,7 +22,6 @@ def hash_to_G1(group: PairingGroup, input_str: str) -> Any:
     g1_generator = group.random(G1)
     return g1_generator ** zr_element
 
-# Simulated smart contract in Python
 class IncentiveContract:
     def __init__(self):
         self.pool = {}
@@ -106,16 +105,16 @@ class IncentiveContract:
         return self.transactions
 
 class DecentralizedCPABE(ABEncMultiAuth):
-    def __init__(self, group: PairingGroup, target_data_size: int = 1024):  # Default to 1KB
+    def __init__(self, group: PairingGroup, target_data_size: int = 1024):
         super().__init__()
         self.group = group
         self.contract = IncentiveContract()
         random.seed(42)
         self.random_zr_cache = [self.group.random(ZR) for _ in range(100)]
         self.cache_index = 0
-        self.chunk_size = 128  
-        self.target_data_size = target_data_size  # Target data size in bytes (default 1KB)
-        self.num_chunks = math.ceil(self.target_data_size / self.chunk_size)  
+        self.chunk_size = 128  # SS512 cp-abe limitation
+        self.target_data_size = target_data_size
+        self.num_chunks = math.ceil(self.target_data_size / self.chunk_size)
 
     def get_random_zr(self) -> Any:
         zr_element = self.random_zr_cache[self.cache_index % len(self.random_zr_cache)]
@@ -168,7 +167,7 @@ class DecentralizedCPABE(ABEncMultiAuth):
         for _ in range(num_files):
             for _ in range(self.num_chunks):
                 s = self.group.random(ZR)
-                theta = list(pk_thetas.keys())[0]  # Use first authority
+                theta = list(pk_thetas.keys())[0]
                 C0 = M * (pk_thetas[theta]["e_g1_g2_alpha"] ** s)
                 C1 = GP["g1"] ** s
                 C2 = GP["g2"] ** s
@@ -182,17 +181,15 @@ class DecentralizedCPABE(ABEncMultiAuth):
         decrypted_messages = []
         attr_count = len([word for word in C[0]["policy"].replace("(", " ( ").replace(")", " ) ").split() if word not in ["AND", "OR", "(", ")"]])
         for ciphertext in C:
-            # Simulate attribute processing to match encryption's attribute loop
             for _ in range(attr_count):
                 policy_g1 = self.group.random(G1)
                 policy_g2 = self.group.random(G2)
-                _ = pair(policy_g1, policy_g2)  # Simulate policy evaluation cost
-            # Use the first valid key for decryption
+                _ = pair(policy_g1, policy_g2)
             if not keys:
                 print("No keys available for decryption")
                 decrypted_messages.append(None)
                 continue
-            K0, K1 = keys[0]  # Use first key (assumes policy satisfaction is pre-checked)
+            K0, K1 = keys[0]
             if K0 is None:
                 decrypted_messages.append(None)
                 continue
@@ -299,9 +296,6 @@ class DecentralizedCPABE(ABEncMultiAuth):
 class TestMetaverseDataSharing(unittest.IsolatedAsyncioTestCase):
     def setUp(self):
         self.group = PairingGroup("SS512")
-        self.cpabe = DecentralizedCPABE(self.group, target_data_size=1024)  # Set to 1KB
-        self.cpabe.contract = IncentiveContract()
-        self.GP = self.cpabe.global_setup()
         self.results = []
         self.csv_data = []
 
@@ -324,8 +318,10 @@ class TestMetaverseDataSharing(unittest.IsolatedAsyncioTestCase):
     def generate_attributes(self, attr_count: int) -> List[str]:
         return [f"attr{i+1}@AUTH{i+1}" for i in range(attr_count)]
 
-    async def run_scenario(self, GID: str, num_encryptions: int, num_attributes: int, deposit: int, num_files: int, scenario: str) -> Dict:
-        logger.info(f"Starting {GID}: Encryptions={num_encryptions}, Attributes={num_attributes}, Num Files={num_files}, Chunks per File={self.cpabe.num_chunks}")
+    async def run_scenario(self, GID: str, num_encryptions: int, num_attributes: int, deposit: int, num_files: int, scenario: str, data_size: int) -> Dict:
+        cpabe = DecentralizedCPABE(self.group, target_data_size=data_size)
+        cpabe.contract = IncentiveContract()
+        logger.info(f"Starting {GID}: Encryptions={num_encryptions}, Attributes={num_attributes}, Data Size={data_size} bytes, Chunks per File={cpabe.num_chunks}")
 
         sk_thetas = {}
         pk_thetas = {}
@@ -335,13 +331,13 @@ class TestMetaverseDataSharing(unittest.IsolatedAsyncioTestCase):
             auth = f"AUTH{i+1}"
             auth_addr = f"auth{i+1}_addr"
             sk_theta, pk_theta = self.measure_time(
-                self.cpabe.abe_auth_setup, self.GP, auth, desc=f"AuthSetup_{auth}"
+                cpabe.abe_auth_setup, self.GP, auth, desc=f"AuthSetup_{auth}"
             )
             sk_thetas[auth] = sk_theta
             pk_thetas[auth] = pk_theta
             auth_addresses.append(auth_addr)
             setup_times.append(self.results[-1]["time"])
-            self.measure_time(self.cpabe.contract.stake, auth_addr, 1000, desc=f"Stake_{auth}")
+            self.measure_time(cpabe.contract.stake, auth_addr, 1000, desc=f"Stake_{auth}")
 
         y = self.group.random(ZR)
         pk_u = self.GP["g1"] ** y
@@ -357,7 +353,7 @@ class TestMetaverseDataSharing(unittest.IsolatedAsyncioTestCase):
             M = self.group.random(GT)
             acp = policies[i]
             C = self.measure_time(
-                self.cpabe.abe_encrypt, M, acp, self.GP, pk_thetas, num_files,
+                cpabe.abe_encrypt, M, acp, self.GP, pk_thetas, num_files,
                 desc=f"Encrypt_NFT{i+1}"
             )
             encryptions.append((M, C))
@@ -365,20 +361,20 @@ class TestMetaverseDataSharing(unittest.IsolatedAsyncioTestCase):
             ct_size = sum(len(self.group.serialize(c["C0"]) + self.group.serialize(c["C1"]) + self.group.serialize(c["C2"])) for c in C) + len(acp.encode())
             ct_sizes.append(ct_size)
             self.measure_time(
-                self.cpabe.contract.expect, f"{GID}_{i+1}", 1000, "owner_addr",
+                cpabe.contract.expect, f"{GID}_{i+1}", 1000, "owner_addr",
                 desc=f"Contract_Expect_NFT{i+1}"
             )
             self.measure_time(
-                self.cpabe.contract.store_access_policy, f"{GID}_{i+1}", acp,
+                cpabe.contract.store_access_policy, f"{GID}_{i+1}", acp,
                 desc=f"Contract_StorePolicy_NFT{i+1}"
             )
 
         for i in range(num_encryptions):
             self.measure_time(
-                self.cpabe.contract.deposit, f"{GID}_{i+1}", "player_addr", deposit,
+                cpabe.contract.deposit, f"{GID}_{i+1}", "player_addr", deposit,
                 desc=f"Contract_Deposit_NFT{i+1}"
             )
-        self.cpabe.contract.attributes["player_addr"] = player_attrs
+        cpabe.contract.attributes["player_addr"] = player_attrs
 
         keygen_times = []
         sk_sizes = []
@@ -386,29 +382,29 @@ class TestMetaverseDataSharing(unittest.IsolatedAsyncioTestCase):
             auth = f"AUTH{i+1}"
             auth_addr = f"auth{i+1}_addr"
             EK0, EK1, d_theta = self.measure_time(
-                self.cpabe.abe_enc_key, GID, self.GP, attr, sk_thetas[auth], pk_u,
+                cpabe.abe_enc_key, GID, self.GP, attr, sk_thetas[auth], pk_u,
                 desc=f"EncKey_{attr}"
             )
             proofs = self.measure_time(
-                self.cpabe.gen_proofs, GID, attr, pk_u, sk_thetas[auth], d_theta, EK0, self.GP,
+                cpabe.gen_proofs, GID, attr, pk_u, sk_thetas[auth], d_theta, EK0, self.GP,
                 desc=f"GenProofs_{attr}"
             )
             keygen_times.append(self.results[-1]["time"] + self.results[-2]["time"])
             sk_size = len(self.group.serialize(EK0)) + len(self.group.serialize(EK1))
             sk_sizes.append(sk_size)
             check = self.measure_time(
-                self.cpabe.check_key, EK0, EK1, proofs, GID, attr, pk_u, self.GP,
+                cpabe.check_key, EK0, EK1, proofs, GID, attr, pk_u, self.GP,
                 desc=f"CheckKey_{attr}"
             )
             if check:
                 for j in range(num_encryptions):
                     self.measure_time(
-                        self.cpabe.contract.store_key, f"{GID}_{j+1}", EK0, EK1, proofs,
+                        cpabe.contract.store_key, f"{GID}_{j+1}", EK0, EK1, proofs,
                         desc=f"Contract_StoreKey_{attr}_NFT{j+1}"
                     )
             else:
                 self.measure_time(
-                    self.cpabe.contract.forfeit_stake, auth_addr,
+                    cpabe.contract.forfeit_stake, auth_addr,
                     desc=f"ForfeitStake_{auth_addr}"
                 )
 
@@ -416,39 +412,39 @@ class TestMetaverseDataSharing(unittest.IsolatedAsyncioTestCase):
         success_count = 0
         combined_policy = " OR ".join([f"L{i+1}: {p}" for i, p in enumerate(policies)])
         for i, (M, C) in enumerate(encryptions):
-            stored_policy = self.cpabe.contract.get_access_policy(f"{GID}_{i+1}")
+            stored_policy = cpabe.contract.get_access_policy(f"{GID}_{i+1}")
             access = self.measure_time(
-                self.cpabe.judge_attrs, player_attrs, stored_policy,
+                cpabe.judge_attrs, player_attrs, stored_policy,
                 desc=f"JudgeAttrs_NFT{i+1}"
             )
             if access:
                 keys = []
                 for auth in sk_thetas:
-                    stored_keys = self.cpabe.contract.get_keys(f"{GID}_{i+1}")
+                    stored_keys = cpabe.contract.get_keys(f"{GID}_{i+1}")
                     for EK0, EK1, _ in stored_keys:
                         K0, K1 = self.measure_time(
-                            self.cpabe.get_key, EK0, EK1, pk_thetas[auth]["g1_alpha"], sk_u,
+                            cpabe.get_key, EK0, EK1, pk_thetas[auth]["g1_alpha"], sk_u,
                             desc=f"GetKey_NFT{i+1}_AUTH{auth}"
                         )
                         if K0 and K1:
                             keys.append((K0, K1))
                 M_dec = self.measure_time(
-                    self.cpabe.abe_decrypt, self.GP, C, keys, num_files,
+                    cpabe.abe_decrypt, self.GP, C, keys, num_files,
                     desc=f"Decrypt_NFT{i+1}"
                 )
                 decrypt_times.append(self.results[-1]["time"])
-                chunks_per_file = self.cpabe.num_chunks
+                chunks_per_file = cpabe.num_chunks
                 if len(M_dec) >= chunks_per_file:
                     success = all(m == M for m in M_dec[:chunks_per_file] if m is not None) and deposit >= 1000
                     if success:
                         success_count += 1
                         self.measure_time(
-                            self.cpabe.contract.reward, "player_addr", "owner_addr", auth_addresses, f"{GID}_{i+1}",
+                            cpabe.contract.reward, "player_addr", "owner_addr", auth_addresses, f"{GID}_{i+1}",
                             desc=f"Contract_Reward_NFT{i+1}"
                         )
             else:
                 print(f"Policy evaluation failed for NFT {i+1}")
-                success_count += 0  # Explicitly indicate no success
+                success_count += 0
 
         mpk_size = sum(len(self.group.serialize(pk_thetas[auth]["g1_alpha"])) +
                        len(self.group.serialize(pk_thetas[auth]["g2_alpha"])) +
@@ -464,6 +460,7 @@ class TestMetaverseDataSharing(unittest.IsolatedAsyncioTestCase):
             "Scenario": scenario,
             "Files": num_encryptions,
             "Attributes": num_attributes,
+            "Data Size (Bytes)": data_size,
             "Policy": combined_policy,
             "Setup Time (ms)": (sum(setup_times) / len(setup_times) * 1000) if setup_times else 0,
             "Keygen Time (ms)": (sum(keygen_times) / len(keygen_times) * 1000) if keygen_times else 0,
@@ -479,43 +476,28 @@ class TestMetaverseDataSharing(unittest.IsolatedAsyncioTestCase):
         return {"success_count": success_count, "total": num_encryptions}
 
     async def test_encryption_attribute_combinations(self):
-        variable_counts = [2, 4, 6, 8 , 10 , 12 , 14]
-        for file_count in variable_counts:
-            for attr_count in variable_counts:
-                GID = f"files_{file_count}_attrs_{attr_count}"
-                scenario = f"Fixed_Files_{file_count}_Attrs_{attr_count}"
-                with self.subTest(GID=GID):
-                    logger.info(f"Starting Scenario 1: Files = {file_count}, Attributes = {attr_count}")
-                    result = await self.run_scenario(
-                        GID=GID,
-                        num_encryptions=file_count,
-                        num_attributes=attr_count,
-                        deposit=1500,
-                        num_files=file_count,
-                        scenario=scenario
-                    )
-                    self.assertEqual(
-                        result["success_count"], result["total"],
-                        f"Scenario {GID}: Expected {result['total']} successes, got {result['success_count']}"
-                    )
-        for attr_count in variable_counts:
-            for file_count in variable_counts:
-                GID = f"attrs_{attr_count}_files_{file_count}"
-                scenario = f"Fixed_Attrs_{attr_count}_Files_{file_count}"
-                with self.subTest(GID=GID):
-                    logger.info(f"Starting Scenario 2: Attributes = {attr_count}, Files = {file_count}")
-                    result = await self.run_scenario(
-                        GID=GID,
-                        num_encryptions=file_count,
-                        num_attributes=attr_count,
-                        deposit=1500,
-                        num_files=file_count,
-                        scenario=scenario
-                    )
-                    self.assertEqual(
-                        result["success_count"], result["total"],
-                        f"Scenario {GID}: Expected {result['total']} successes, got {result['success_count']}"
-                    )
+        data_sizes = [10240,  51200,  102400 ,512000,  1048576]  # 1KB, 5KB, 10KB, 50KB, 100KB ,500KB , 1MB
+        file_count = 1
+        attr_count = 2
+        for data_size in data_sizes:
+            self.GP = self.global_setup()
+            GID = f"files_{file_count}_attrs_{attr_count}_size_{data_size}"
+            scenario = f"Files_{file_count}_Attrs_{attr_count}_Size_{data_size}"
+            with self.subTest(GID=GID):
+                logger.info(f"Starting Scenario: Files = {file_count}, Attributes = {attr_count}, Data Size = {data_size} bytes")
+                result = await self.run_scenario(
+                    GID=GID,
+                    num_encryptions=file_count,
+                    num_attributes=attr_count,
+                    deposit=1500,
+                    num_files=file_count,
+                    scenario=scenario,
+                    data_size=data_size
+                )
+                self.assertEqual(
+                    result["success_count"], result["total"],
+                    f"Scenario {GID}: Expected {result['total']} successes, got {result['success_count']}"
+                )
 
     def tearDown(self):
         print("\nBenchmark Results:")
@@ -526,7 +508,7 @@ class TestMetaverseDataSharing(unittest.IsolatedAsyncioTestCase):
 
         with open("benchmark_results.csv", "w", newline="") as csvfile:
             fieldnames = [
-                "Scenario", "Files", "Attributes", "Policy",
+                "Scenario", "Files", "Attributes", "Data Size (Bytes)", "Policy",
                 "Setup Time (ms)", "Keygen Time (ms)", "Encrypt Time (ms)", "Decrypt Time (ms)",
                 "MPK Size (Bytes)", "MSK Size (Bytes)", "SK Size (Bytes)", "CT Size (Bytes)",
                 "Success Rate (%)"
@@ -537,9 +519,12 @@ class TestMetaverseDataSharing(unittest.IsolatedAsyncioTestCase):
                 writer.writerow(row)
         print("\nCSV output written to 'benchmark_results.csv'")
 
+    def global_setup(self):
+        return {"g1": self.group.random(G1), "g2": self.group.random(G2)}
+
 async def gamefi_scenario():
     group = PairingGroup("SS512")
-    cpabe = DecentralizedCPABE(group, target_data_size=1024)  # Set to 1KB
+    cpabe = DecentralizedCPABE(group, target_data_size=1024)
     GP = cpabe.global_setup()
 
     sk_theta1, pk_theta1 = cpabe.abe_auth_setup(GP, "AUTH1")
